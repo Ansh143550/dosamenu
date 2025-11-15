@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>99 BENNE DOSA - The Ultimate Dosa Destination</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* BASE & TYPOGRAPHY */
+    :root { --accent-dark: #7A2000; --accent-warm: #ff9800; --danger: #cc0000; }
+    html,body { height:100%; }
+    body {
+      font-family: 'Lato', sans-serif; color:#333; margin:0; padding:0; line-height:1.6;
+      background-image: url("https://i.ibb.co/SXBwFG7t/unnamed.jpg");
+      background-attachment:fixed; background-size:flex; background-repeat: repeat; background-position:center center;
+    }
+
+    /* HEADER & HERO SECTION - ELEGANT & GLOWING */
+    .header {
+      background:url("https://aryaas.restaurant/wp-content/themes/aryaas/assets/img/banner01.jpg") no-repeat center;
+      background-size:cover; background-position:small; background-attachment: flex; background-blend-mode: multiply;
+      color:#dde252cc; padding:40px 20px; box-shadow:0 8px 20px rgba(200, 147, 24, 0.35); position:relative; z-index:1; overflow:hidden; text-align:center;;
+    }
+
+    .header h1 { font-family:'Playfair Display', serif; font-size:4em; margin:0 0 10px 0; letter-spacing:4px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.7), 0 0 20px rgba(255,204,102,0.6), 0 0 30px rgba(255,255,255,0.4);
+      animation: glow-sparkle 3s infinite alternate ease-in-out; transform: translateX(-5%);
+    }
+
+    .header p { font-size:1.3em; margin:0; font-weight:400; font-style:italic; text-shadow:1px 1px 5px rgba(0,0,0,0.6); color:#fff3e0;transform: translateX(-5%); }
+    @keyframes glow-sparkle { 0%{ text-shadow:0 0 8px rgba(255,255,255,0.6),0 0 15px rgba(255,204,102,0.5);} 50%{ text-shadow:0 0 12px rgba(255,255,255,0.8),0 0 25px rgba(212, 147, 17, 0.8);} 100%{ text-shadow:0 0 8px rgba(255,255,255,0.6),0 0 15px rgba(255,204,102,0.5);} }
+
+    /* MENU CONTAINER */
+    .menu-container { max-width:70%; margin:40px auto; padding:0 20px; display:grid; grid-template-columns:1fr 340px; gap:30px; align-items:start; }
+    .menu-main { display:flex; flex-direction:column; gap:25px; }
+
+    .menu-section { background-color:rgba(255,255,255,0.95); padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.12); border:1px solid #e0e0e0;
+      background-image: url("https://lh3.googleusercontent.com/gg-dl/ABS2GSnuoMXYHi6LgF4aCvRSJ6OddHY75aHjZRN8WTj72LPFVwqiUz9lAd2_RTwU2100w9TJFVxHbuUofX9eC0bDDcF8iSZI7cmBdAGSfEIZvPmmB8_Qf3vBw3yJCXr6021krCfM7YeHhOeICszFOgV_BvISTHY6oPlo3cPsJHgdCWFlWwoxiw=s1024-rj");
+      background-repeat: repeat; background-size: auto; }
+
+    .balaji-special { margin:0; padding:30px; }
+    .menu-section h2 { font-family:'Playfair Display', serif; color:var(--accent-dark); font-size:2em; text-align:center; margin-bottom:25px; padding-bottom:10px; border-bottom:2px solid #ffcc80; }
+    .balaji-special h2 { font-size:1.8em; color:#cc0000; border-bottom:2px solid #ff7043; }
+
+    .balaji-special-section { box-shadow: 0 0 20px rgba(255,140,0,0.7), 0 0 40px rgba(255,165,0,0.4); animation: highlight-glow 2s infinite alternate ease-in-out; border:3px solid #ff9800; }
+    @keyframes highlight-glow { 0%{ box-shadow:0 0 10px rgba(255,140,0,0.5),0 0 20px rgba(255,165,0,0.2);} 100%{ box-shadow:0 0 20px rgba(255,140,0,0.8),0 0 30px rgba(255,165,0,0.5);} }
+
+    .dosa-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .dosa-category { padding:15px; border-radius:10px; background-color:rgba(255,255,255,0.95); border:1px solid #f0f0f0; }
+    .balaji-special-category .dosa-category { background-color:rgba(255,249,230,0.98); border:2px solid #ff9800; box-shadow:0 4px 10px rgba(255,160,0,0.2); background-image:none; }
+    .dosa-category h3 { font-size:1.15em; color:#a0522d; margin-top:0; padding-bottom:8px; border-bottom:1px solid #ddd; margin-bottom:15px; }
+
+    .dosa-item { display:flex; justify-content:space-between; align-items:center; gap:15px; padding:12px 15px; margin-bottom:12px; background:#ffffff; border-radius:10px; border:1px solid #f0f0f0; border-left:5px solid #ff8a65; box-shadow:0 2px 8px rgba(0,0,0,0.05); transition: all 0.18s ease; cursor:pointer; outline:none; }
+    .dosa-item:hover, .dosa-item.selected { transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.1); border-left:5px solid var(--danger); background:#edffe0; }
+    .dosa-item:focus { box-shadow:0 6px 18px rgba(0,0,0,0.1); border-left:5px solid var(--accent-warm); background:#f0f0ff; }
+    .dosa-left { display:flex; align-items:center; gap:10px; }
+    .dosa-thumb { width:40px; height:40px; border-radius:50%; background:#ffd54f; display:flex; align-items:center; justify-content:center; font-weight:700; color:#7A2000; flex-shrink:0; font-size:0.9em; border:2px solid #ffcc80; }
+    .dosa-name { font-weight:700; font-size:1em; color:#4A4A4A; }
+    .dosa-price { color:#cc0000; font-weight:800; min-width:60px; text-align:right; font-size:1em; }
+
+    .spice-badge { font-size:0.75em; font-weight:700; padding:3px 6px; border-radius:6px; display:inline-block; white-space:nowrap; }
+    .spice-mild::before { content:'🌿 '; font-size:0.9em; } .spice-medium::before { content:'🌶️ '; font-size:0.9em; } .spice-hot::before { content:'🔥 '; font-size:0.9em; }
+    .spice-mild { background-color:#e8f5e9; color:#2e7d32; } .spice-medium { background-color:#fff3e0; color:#ff9800; } .spice-hot { background-color:#ffebee; color:#c62828; }
+
+    /* DETAIL CARD (STICKY ASIDE) */
+    .detail-card { background:rgba(255,255,255,0.95); padding:24px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.12); position:sticky; top:40px; height:fit-content; width:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:16px; }
+    .detail-card .title h3 { font-family:'Playfair Display', serif; font-size:1.8em; color:var(--accent-dark); margin:0; }
+    .detail-img { width:100%; height:180px; background:url("https://static.toiimg.com/photo/54289752.cms");background-size: cover; background-position:small; background-attachment: flex;border-radius:10px; display:flex; align-items:center; justify-content:center; color:var(--accent-dark); font-weight:800; font-size:1.5em; box-shadow: inset 0 0 10px rgba(0,0,0,0.05); }
+    .desc { font-size:1em; line-height:1.6; color:#555; border-bottom:1px dotted #eee; padding-bottom:10px; }
+    .price { font-weight:900; color:var(--danger); font-size:1.6em; }
+    .detail-footer { margin-top:10px; display:flex; gap:15px; align-items:center; justify-content:space-between; }
+    .btn-order { background:linear-gradient(90deg,#cc0000,#ff4c4c); border:none; color:white; padding:12px 20px; border-radius:8px; cursor:pointer; font-weight:700; font-size:1.05em; box-shadow:0 4px 10px rgba(204,0,0,0.3); transition: transform .12s ease; }
+    .btn-order:active { transform:translateY(1px); }
+
+    .dosa-dice-panel { border-top:2px dashed #ff9800; padding-top:20px; margin-top:20px; text-align:center; background:rgba(255,255,255,0.9); }
+    .dosa-dice-panel h4 { font-family:'Playfair Display', serif; color:var(--accent-dark); margin:0 0 10px 0; font-size:1.4em; }
+    .dosa-roll-box { background-color:#fff3e0; border:3px solid #ff9800; border-radius:10px; padding:15px; overflow:hidden; height:50px; display:flex; align-items:center; justify-content:center; position:relative; }
+    #randomDosaName { font-size:1.6em; font-weight:900; color:var(--danger); text-transform:uppercase; white-space:nowrap; display:inline-block; transition: transform 0.06s ease-out; }
+    .btn-roll { background:linear-gradient(90deg,#ff9800,#ff7043); border:none; color:white; padding:10px 15px; border-radius:8px; cursor:pointer; font-weight:700; margin-top:15px; width:100%; transition: background 0.2s; }
+
+    @media (max-width:940px) { .menu-container { grid-template-columns:1fr; gap:20px; } .detail-card { position:relative; top:0; } }
+  </style>
+</head>
+<body>
+
+  <header class="header" role="banner">
+    <h1>99 BENNE DOSA</h1>
+    <p>🔥 The Ultimate Dosa Destination - Crispy Perfection, 99 Ways! 🔥</p>
+  </header>
+
+  <div class="menu-container">
+
+    <div class="menu-main">
+
+      <section class="menu-section balaji-special balaji-special-section" aria-labelledby="specials-title">
+        <h2 id="specials-title">🏆 Bangalore's Signature Specials 🏆</h2>
+        <div class="dosa-grid">
+
+          <div class="dosa-category balaji-special-category">
+            <h3>MUST-TRY SIGNATURES</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">DK</div><div><div class="dosa-name">DIL KHUSH DOSA</div><div class="dosa-meta"><span class="meta-desc">Signature special blend</span></div></div></div>
+              <div><div class="dosa-price">₹140/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">ZD</div><div><div class="dosa-name">ZINNI DOSA</div><div class="dosa-meta"><span class="meta-desc">House favorite with cheese</span></div></div></div>
+              <div><div class="dosa-price">₹140/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">AM</div><div><div class="dosa-name">ALL MIX CHEESE</div><div class="dosa-meta"><span class="meta-desc">Various fillings + cheese</span></div></div></div>
+              <div><div class="dosa-price">₹120/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">KM</div><div><div class="dosa-name">KERALA MASALA DOSA</div><div class="dosa-meta"><span class="meta-desc">Coconut & Kerala spices</span></div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+          <div class="dosa-category balaji-special-category">
+            <h3>FAN FAVORITE FUSIONS</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">PZ</div><div><div class="dosa-name">PIZZA DOSA</div><div class="dosa-meta"><span class="meta-desc">Pizza toppings on a crispy base</span></div></div></div>
+              <div><div class="dosa-price">₹200/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">ND</div><div><div class="dosa-name">NOODAL DOSA</div><div class="dosa-meta"><span class="meta-desc">Noodles inside for fusion twist</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">PC</div><div><div class="dosa-name">PANEER CHEESE CORN</div><div class="dosa-meta"><span class="meta-desc">Paneer, cheese & sweet corn</span></div></div></div>
+              <div><div class="dosa-price">₹110/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">AM</div><div><div class="dosa-name">ALL MIX DOSA</div><div class="dosa-meta"><span class="meta-desc">A blend of our best fillings</span></div></div></div>
+              <div><div class="dosa-price">₹100/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="menu-section" aria-labelledby="classic-title">
+        <h2 id="classic-title">⭐ Classic & Masala Dosas ⭐</h2>
+        <div class="dosa-grid">
+
+          <div class="dosa-category">
+            <h3>PLANE DOSA</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://vaya.in/recipes/wp-content/uploads/2019/03/butter-dosa.jpg">
+              <div class="dosa-left"><div class="dosa-thumb">BP</div><div><div class="dosa-name">BUTTER PLANE</div><div class="dosa-meta"><span class="meta-desc">Light buttery crisp</span></div></div></div>
+              <div><div class="dosa-price">₹60/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://vaya.in/recipes/wp-content/uploads/2019/03/butter-dosa.jpg">
+              <div class="dosa-left"><div class="dosa-thumb">MY</div><div><div class="dosa-name">MYSORE PLANE</div><div class="dosa-meta"><span class="meta-desc">Spicy red chutney inside</span></div></div></div>
+              <div><div class="dosa-price">₹60/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://vaya.in/recipes/wp-content/uploads/2019/03/butter-dosa.jpg">
+              <div class="dosa-left"><div class="dosa-thumb">MP</div><div><div class="dosa-name">MUSHROOM PLANE</div><div class="meta-desc">Sautéed mushroom touch</div></div></div>
+              <div><div class="dosa-price">₹60/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://vaya.in/recipes/wp-content/uploads/2019/03/butter-dosa.jpg">
+              <div class="dosa-left"><div class="dosa-thumb">CL</div><div><div class="dosa-name">CHILI PLANE</div><div class="meta-desc">Fiery chili touch</div></div></div>
+              <div><div class="dosa-price">₹60/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://vaya.in/recipes/wp-content/uploads/2019/03/butter-dosa.jpg">
+              <div class="dosa-left"><div class="dosa-thumb">ON</div><div><div class="dosa-name">ONION PLANE DOSE</div><div class="meta-desc">Classic onion crunch</div></div></div>
+              <div><div class="dosa-price">₹50/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://vaya.in/recipes/wp-content/uploads/2019/03/butter-dosa.jpg">
+              <div class="dosa-left"><div class="dosa-thumb">MN</div><div><div class="dosa-name">MOINNESS PLANE</div><div class="meta-desc">Lightly seasoned plain</div></div></div>
+              <div><div class="dosa-price">₹50/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+          <div class="dosa-category">
+            <h3>MASALA DOSA</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" background-position = auto  data-img-url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5O5dX1_gOSI4l3Viavx7dKAJSu1kTuZWLDw&s">
+              <div class="dosa-left"><div class="dosa-thumb">BM</div><div><div class="dosa-name">BUTTER MASALA</div><div class="meta-desc">Classic potato masala with butter</div></div></div>
+              <div><div class="dosa-price">₹50/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5O5dX1_gOSI4l3Viavx7dKAJSu1kTuZWLDw&s">
+              <div class="dosa-left"><div class="dosa-thumb">CM</div><div><div class="dosa-name">CHEESE MASALA</div><div class="meta-desc">Melty cheese + potato mix</div></div></div>
+              <div><div class="dosa-price">₹70/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5O5dX1_gOSI4l3Viavx7dKAJSu1kTuZWLDw&s">
+              <div class="dosa-left"><div class="dosa-thumb">MM</div><div><div class="dosa-name">MYSORE MASALA</div><div class="meta-desc">Spicy Mysore potato masala</div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5O5dX1_gOSI4l3Viavx7dKAJSu1kTuZWLDw&s">
+              <div class="dosa-left"><div class="dosa-thumb">PM</div><div><div class="dosa-name">PANEER MASALA</div><div class="meta-desc">Paneer & spiced potato</div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5O5dX1_gOSI4l3Viavx7dKAJSu1kTuZWLDw&s">
+              <div class="dosa-left"><div class="dosa-thumb">SM</div><div><div class="dosa-name">SPRING MASALA</div><div class="meta-desc">Spring roll inspired filling</div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5O5dX1_gOSI4l3Viavx7dKAJSu1kTuZWLDw&s">
+              <div class="dosa-left"><div class="dosa-thumb">ND</div><div><div class="dosa-name">NOODAL DOSA</div><div class="meta-desc">Noodles inside for fusion twist</div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="menu-section">
+        <h2>🌶️ Specialty Dosa Categories 🌶️</h2>
+        <div class="dosa-grid">
+
+          <div class="dosa-category">
+            <h3>MUSHROOM SPECIAL DOSA</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CM</div><div><div class="dosa-name">CHEESE MUSHROOM</div><div class="dosa-meta"><span class="meta-desc">Cheesy mushroom goodness</span></div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">MC</div><div><div class="dosa-name">MUSHROOM CHINESE</div><div class="dosa-meta"><span class="meta-desc">Chinese-style mushroom</span></div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">MS</div><div><div class="dosa-name">MUSHROOM SWEET CORN</div><div class="dosa-meta"><span class="meta-desc">Sweet corn with mushroom</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp ">
+              <div class="dosa-left"><div class="dosa-thumb">MA</div><div><div class="dosa-name">MUSHROOM ALU</div><div class="dosa-meta"><span class="meta-desc">Mushroom with potato</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">MM</div><div><div class="dosa-name">MUSHROOM MUTTER</div><div class="dosa-meta"><span class="meta-desc">Mushroom & peas masala</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+          <div class="dosa-category">
+            <h3>PANEER SPECIAL DOSA</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false" data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">PC</div><div><div class="dosa-name">PANEER CHEESE</div><div class="dosa-meta"><span class="meta-desc">Paneer + cheese combo</span></div></div></div>
+              <div><div class="dosa-price">₹100/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">PP</div><div><div class="dosa-name">PANEER CHEESE PAVBHAJI</div><div class="dosa-meta"><span class="meta-desc">Paneer & pav bhaji cheese</span></div></div></div>
+              <div><div class="dosa-price">₹110/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">PS</div><div><div class="dosa-name">PANEER SWEET CORN</div><div class="dosa-meta"><span class="meta-desc">Paneer with sweet corn</span></div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">PA</div><div><div class="dosa-name">PANEER ALU</div><div class="dosa-meta"><span class="meta-desc">Paneer & potato filling</span></div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">PS</div><div><div class="dosa-name">PANEER SPRING</div><div class="dosa-meta"><span class="meta-desc">Spring-style paneer filling</span></div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+          <div class="dosa-category">
+            <h3>MYSORE SPECIALS</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CM</div><div><div class="dosa-name">CHEESE MYSORE</div><div class="dosa-meta"><span class="meta-desc">Cheesy Mysore spicy dosa</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp"> 
+              <div class="dosa-left"><div class="dosa-thumb">PM</div><div><div class="dosa-name">PANEER MYSORE</div><div class="dosa-meta"><span class="meta-desc">Mysore chutney with paneer</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp  ">
+              <div class="dosa-left"><div class="dosa-thumb">MM</div><div><div class="dosa-name">MYSORE MUSHROOM</div><div class="dosa-meta"><span class="meta-desc">Mysore twist for mushrooms</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">MB</div><div><div class="dosa-name">MYSORE BABY CORN</div><div class="dosa-meta"><span class="meta-desc">Mysore baby corn masala</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">MS</div><div><div class="dosa-name">MYSORE SWEET CORN</div><div class="dosa-meta"><span class="meta-desc">Sweet corn with Mysore spice</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+          <div class="dosa-category">
+            <h3>CHILLY SPECIAL DOSA</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CC</div><div><div class="dosa-name">CHILLY CHEESE</div><div class="dosa-meta"><span class="meta-desc">Cheese with chilly flavor</span></div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CP</div><div><div class="dosa-name">CHILLY PANEER</div><div class="dosa-meta"><span class="meta-desc">Paneer in chilly sauce</span></div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CM</div><div><div class="dosa-name">CHILLY MASALA</div><div class="dosa-meta"><span class="meta-desc">Spicy chilly masala</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CM</div><div><div class="dosa-name">CHILLY MUSHROOM</div><div class="dosa-meta"><span class="meta-desc">Mushrooms in chilly sauce</span></div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">PP</div><div><div class="dosa-name">CHILLY PAV BHAJI</div><div class="meta-desc">Pav bhaji with chilly notes</div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+          <div class="dosa-category">
+            <h3>SEZWAN SPECIAL DOSA</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">SS</div><div><div class="dosa-name">SEZWAN MYSORE PANEER CHEESE</div><div class="dosa-meta"><span class="meta-desc">All-in-one Sezwan Mysore paneer cheese</span></div></div></div>
+              <div><div class="dosa-price">₹110/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">SC</div><div><div class="dosa-name">SEZWAN MYSORE CHEESE</div><div class="dosa-meta"><span class="meta-desc">Cheese with sezwan & mysore</span></div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">SP</div><div><div class="dosa-name">SEZWAN MYSORE PAV BHAJI</div><div class="meta-desc">Pav bhaji with Sezwan-Mysore kick</div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">SM</div><div><div class="dosa-name">SEZWAN MYSORE MASAL</div><div class="meta-desc">Sezwan masala with Mysore notes</div></div></div>
+              <div><div class="dosa-price">₹70/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CH</div><div><div class="dosa-name">CHEESE SEZWAN</div><div class="meta-desc">Simple cheese sezwan delight</div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+          <div class="dosa-category">
+            <h3>CHINESE SPECIAL DOSA</h3>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CC</div><div><div class="dosa-name">CHEESE CHINESE SWEET CORN</div><div class="meta-desc">Cheese & sweet corn in Chinese style</div></div></div>
+              <div><div class="dosa-price">₹110/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CM</div><div><div class="dosa-name">CHEESE CHINESE MYSORE</div><div class="meta-desc">Chinese style with Mysore chutney</div></div></div>
+              <div><div class="dosa-price">₹110/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CC</div><div><div class="dosa-name">CHEESE CHINESE</div><div class="meta-desc">Classic cheese Chinese dosa</div></div></div>
+              <div><div class="dosa-price">₹100/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CS</div><div><div class="dosa-name">CHEESE SPRING</div><div class="meta-desc">Cheese with spring flavors</div></div></div>
+              <div><div class="dosa-price">₹90/-</div><div class="spice-badge"></div></div>
+            </div>
+
+            <div class="dosa-item" tabindex="0" role="button" aria-pressed="false"  data-img-url="https://www.tarladalal.com/media/Mysore%20masala%20dosa.webp">
+              <div class="dosa-left"><div class="dosa-thumb">CF</div><div><div class="dosa-name">CHINESE FILING MASALA</div><div class="meta-desc">Chinese veggies & spice filling</div></div></div>
+              <div><div class="dosa-price">₹80/-</div><div class="spice-badge"></div></div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="detail-card" id="detailCard" aria-live="polite" aria-label="Dosa details">
+      <div class="title"><h3 id="detailName">Select a Dosa to see details</h3></div>
+      <div class="detail-img" id="detailImg">DOSA</div>
+      <div class="desc" id="detailDesc">Click any dosa item on the left to view a fuller description, price, and spiciness tag. This panel swaps content based on your selection.</div>
+      <div style="display:flex;gap:10px;align-items:center;"><div class="price" id="detailPrice">--</div><div style="flex:1"></div></div>
+      <div class="detail-footer"><div id="detailTag" class="tag spice-medium" aria-hidden="true">Medium</div><button class="btn-order" id="orderBtn" type="button">Order Now</button></div>
+
+      <div class="dosa-dice-panel">
+        <h4>Can't Choose? Let the Dosa Dice Roll! 🎲</h4>
+        <div class="dosa-roll-box" aria-live="polite"><span id="randomDosaName">ROLL THE DICE!</span></div>
+        <button class="btn-roll" id="rollBtn" type="button">Roll for a Suggestion</button>
+      </div>
+    </aside>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const items = Array.from(document.querySelectorAll('.dosa-item'));
+        const detailName = document.getElementById('detailName');
+        const detailDesc = document.getElementById('detailDesc');
+        const detailPrice = document.getElementById('detailPrice');
+        const detailTag = document.getElementById('detailTag');
+        const detailImg = document.getElementById('detailImg');
+        const detailCard = document.getElementById('detailCard');
+        const rollBtn = document.getElementById('rollBtn');
+        const randomDosaNameEl = document.getElementById('randomDosaName');
+        const orderBtn = document.getElementById('orderBtn');
+
+        if (!items.length) return;
+
+        function guessSpice(name) {
+            const s = (name || '').toUpperCase();
+            if (/(MYSORE|CHILLY|SEZWAN|FIERY|HOT|KERALA|ZINNI)/.test(s)) return 'Hot';
+            if (/(CHEESE|SWEET|BUTTER|PANEER|BABY|MILD|PAV|PLANE|PLAIN)/.test(s)) return 'Mild';
+            return 'Medium';
+        }
+
+        function spiceClass(level) { if (level === 'Hot') return 'spice-hot'; if (level === 'Mild') return 'spice-mild'; return 'spice-medium'; }
+        function safeTextContent(el) { return el ? el.textContent.trim() : ''; }
+        function getMetaDescFrom(item) { const sel = item.querySelector('.meta-desc') || item.querySelector('.dosa-meta') || item.querySelector('[data-meta]') || null; return sel ? safeTextContent(sel) : ''; }
+
+        function updateDetailCard(itemElement, options = {}) {
+            if (!itemElement) return;
+            items.forEach(i => { i.classList.remove('selected'); i.setAttribute('aria-pressed', 'false'); });
+            itemElement.classList.add('selected'); itemElement.setAttribute('aria-pressed', 'true');
+
+            const nameEl = itemElement.querySelector('.dosa-name');
+            const priceEl = itemElement.querySelector('.dosa-price');
+            
+            const imgUrl = itemElement.getAttribute('data-img-url'); // <--- GET IMAGE URL
+
+            const meta = getMetaDescFrom(itemElement) || 'Delicious dosa prepared fresh';
+            const name = safeTextContent(nameEl) || 'Dosa';
+            const price = safeTextContent(priceEl) || '₹--';
+            const level = guessSpice(name);
+
+            // --- UPDATE DETAIL PANEL ---
+            detailName.textContent = name; detailPrice.textContent = price; detailDesc.textContent = meta + '. Served hot with chutney and sambhar. A perfect choice for dosa lovers.';
+            detailTag.textContent = level; detailTag.className = 'tag ' + spiceClass(level);
+            
+            const words = name.split(/\s+/).filter(Boolean); let initials = words.slice(0, 2).map(w => w[0]).join('').toUpperCase(); if (!initials) initials = 'D';
+            
+            // --- SET IMAGE BACKGROUND OR INITIALS ---
+            if (imgUrl) {
+                detailImg.style.backgroundImage = `url('${imgUrl}')`;
+                detailImg.textContent = ''; // Clear initials if image is present
+                detailImg.style.backgroundSize = 'cover';
+                detailImg.style.backgroundPosition = 'center';
+            } else {
+                detailImg.style.backgroundImage = 'none';
+                detailImg.textContent = initials; // Fallback to initials
+            }
+            
+            if (window.innerWidth <= 940 && options.scroll !== false) detailCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        items.forEach(item => {
+            const name = safeTextContent(item.querySelector('.dosa-name'));
+            const level = guessSpice(name);
+            const badge = item.querySelector('.spice-badge');
+            if (badge) { badge.className = 'spice-badge ' + spiceClass(level); badge.textContent = level; }
+
+            item.addEventListener('click', () => updateDetailCard(item));
+            item.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); item.click(); } });
+        });
+
+        let rollInterval = null;
+        const allDosaNames = items.map(item => ({ name: safeTextContent(item.querySelector('.dosa-name')) || 'Dosa', element: item }));
+
+        function startRollAnimation(duration = 2000) { if (!allDosaNames.length) return; rollBtn.disabled = true; randomDosaNameEl.style.opacity = '1'; if (rollInterval) { clearInterval(rollInterval); rollInterval = null; }
+            rollInterval = setInterval(() => { const randomItem = allDosaNames[Math.floor(Math.random() * allDosaNames.length)]; randomDosaNameEl.textContent = randomItem.name; randomDosaNameEl.style.transform = `translateY(${Math.random() * 40 - 20}px)`; setTimeout(() => { randomDosaNameEl.style.transform = 'translateY(0)'; }, 60); }, 90);
+            setTimeout(() => stopRollAnimation(), duration);
+        }
+
+        function stopRollAnimation() { if (rollInterval) { clearInterval(rollInterval); rollInterval = null; } randomDosaNameEl.style.transform = 'translateY(0)'; const finalIndex = Math.floor(Math.random() * allDosaNames.length); const finalDosaItem = allDosaNames[finalIndex]; randomDosaNameEl.textContent = finalDosaItem.name; updateDetailCard(finalDosaItem.element, { scroll: true }); if (rollBtn) rollBtn.disabled = false; }
+
+        if (rollBtn) { rollBtn.addEventListener('click', () => { const duration = 1600 + Math.floor(Math.random() * 1600); startRollAnimation(duration); }); rollBtn.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); rollBtn.click(); } }); }
+
+        if (orderBtn) { orderBtn.addEventListener('click', () => { const name = detailName.textContent || 'selected dosa'; alert(`Great choice — "${name}" has been added to your (demo) order.`); }); }
+
+        // Initial load: update detail card with the first item
+        updateDetailCard(items[0], { scroll: false });
+        window.addEventListener('beforeunload', () => { if (rollInterval) clearInterval(rollInterval); });
+    });
+</script>
+
+</body>
+</html>
